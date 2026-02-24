@@ -1,0 +1,90 @@
+{
+    "name": "agauto",
+    "displayName": "AG Auto Click & Scroll",
+    "description": "Auto-click Run/Allow buttons and auto-scroll Antigravity chat frame. Visual settings UI included.",
+    "version": "4.3.0",
+    "icon": "media/icon.png",
+    "publisher": "zixfel",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yuvi121242/agauto"
+    },
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./src/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "agauto.enable",
+                "title": "AG Auto: Enable (Inject Script)"
+            },
+            {
+                "command": "agauto.disable",
+                "title": "AG Auto: Disable (Remove Script)"
+            },
+            {
+                "command": "agauto.openSettings",
+                "title": "AG Auto: Open Settings"
+            }
+        ],
+        "configuration": {
+            "title": "AG Auto Click & Scroll",
+            "properties": {
+                "agauto.enabled": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable/Disable Auto Click & Scroll"
+                },
+                "agauto.language": {
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "enumDescriptions": [
+                        "English"
+                    ],
+                    "default": "en",
+                    "description": "Display language for Settings UI"
+                },
+                "agauto.scrollPauseMs": {
+                    "type": "number",
+                    "default": 7000,
+                    "description": "Pause time when user scrolls manually (ms)"
+                },
+                "agauto.scrollIntervalMs": {
+                    "type": "number",
+                    "default": 500,
+                    "description": "Auto scroll scan speed (ms)"
+                },
+                "agauto.clickIntervalMs": {
+                    "type": "number",
+                    "default": 1000,
+                    "description": "Click scan speed (ms)"
+                },
+                "agauto.clickPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "default": [
+                        "Allow",
+                        "Always Allow",
+                        "Run",
+                        "Keep Waiting"
+                    ],
+                    "description": "List of button texts to auto-click"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "echo ok"
+    }
+}
